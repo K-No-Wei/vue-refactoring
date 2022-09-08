@@ -15,6 +15,14 @@ import 'bootstrap/dist/js/bootstrap.min'
 // 引入阿里图标
 import "@/assets/iconfont/iconfont.css"
 
+// 提示动画
+import Vtip from 'vtip'
+import 'vtip/lib/index.min.css'
+// // 注册指令使用
+Vue.use(Vtip.directive)
+// // 工具函数调用
+Vue.prototype.$tip = Vtip.tip
+
 // Vue.use(ElementUI);
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
