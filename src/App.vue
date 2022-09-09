@@ -12,5 +12,4 @@ export default {
 <style lang="less" scoped>
 @import url("@/assets/css/reset.css");
 @import url("@/assets/css/style.css");
-
 </style>

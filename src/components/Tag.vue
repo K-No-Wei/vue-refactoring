@@ -3,17 +3,11 @@
       <div class="card-header">标签</div>
       <div class="card-body text-primary">
         <ul class="list-group">
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                java
-                <span class="badge badge-primary badge-pill">14</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                C++
-                <span class="badge badge-primary badge-pill">2</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                python
-                <span class="badge badge-primary badge-pill">1</span>
+            <li v-for="(item ,index) in tagList" :key="index" class="list-group-item d-flex justify-content-between align-items-center">
+                <router-link :to="{name: 'tag', params:{id: item.id}}">
+                {{item.tagName}}
+                </router-link>
+                <span class="badge badge-primary badge-pill">{{item.count}}</span>
             </li>
         </ul>
       </div>
@@ -22,7 +16,33 @@
   
   <script>
   export default {
-  
+        data(){
+            return{
+                // 标签数据
+                tagList:[
+                    {
+                        id: 1,
+                        tagName: 'java',
+                        count: 3
+                    },
+                    {
+                        id: 2,
+                        tagName: 'C++',
+                        count: 3
+                    },
+                    {
+                        id: 3,
+                        tagName: 'python',
+                        count: 3
+                    },
+                    {
+                        id: 4,
+                        tagName: 'C#',
+                        count: 3
+                    }
+                ]
+            }
+        }
   }
   </script>
   
@@ -40,6 +60,9 @@
         color: #FFF;
         ul{
             li{
+                a{
+                    color: #FFF
+                }
                 color: #FFF;
             }
         }

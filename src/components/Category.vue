@@ -3,30 +3,12 @@
     <div class="card-header">分类</div>
     <div class="card-body text-primary">
         <ul class="list-group">
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                博客
-                <span class="badge badge-primary badge-pill">14</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                生活
-                <span class="badge badge-primary badge-pill">2</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                趣事
-                <span class="badge badge-primary badge-pill">1</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                博客
-                <span class="badge badge-primary badge-pill">14</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                生活
-                <span class="badge badge-primary badge-pill">2</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                趣事
-                <span class="badge badge-primary badge-pill">1</span>
-            </li>
+                <li v-for="(item, index) in categoryList" :key="index" class="list-group-item d-flex justify-content-between align-items-center">
+                    <router-link :to="{name: 'category', params:{id: item.id}}">
+                        {{item.categoryName}}
+                    </router-link>
+                    <span class="badge badge-primary badge-pill">{{item.count}}</span> 
+                </li>
         </ul>
     </div>
   </div>
@@ -34,7 +16,28 @@
 
 <script>
 export default {
-
+    data(){
+        return{
+            // 分类列表获取
+            categoryList:[
+                {
+                    id: 1,
+                    categoryName: '博客',
+                    count: 1
+                },
+                {
+                    id: 2,
+                    categoryName: '生活',
+                    count: 1
+                },
+                {
+                    id: 3,
+                    categoryName: '趣事',
+                    count: 1
+                }
+            ]
+        }
+    }
 }
 </script>
 
@@ -52,6 +55,9 @@ export default {
         color: #FFF;
         ul{
             li{
+                a{
+                    color: #FFF;
+                }
                 color: #FFF;
             }
         }

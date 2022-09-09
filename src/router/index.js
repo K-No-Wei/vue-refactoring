@@ -14,13 +14,40 @@ const routes = [
       {
         path: '/article',
         component: () => import("@/views/article")
+      },
+      {
+        path: '/article/:id',
+        name: 'articleid',
+        component: () => import("@/views/article/articleById.vue")
+      },
+      {
+        path:  '/category/:id',
+        name: 'category',
+        component: () => import("@/views/category")
+      },
+      {
+        path: `/tag/:id`,
+        name: 'tag',
+        component: () => import("@/views/tag")
+      },
+      {
+        path: '/archive',
+        component: () => import("@/views/archive")
+      },
+      {
+        path: '/my',
+        component: () => import("@/views/my")
       }
     ]
+  },
+  {
+    path: '*',
+    component: () => import("@/views/404")
   }
 ]
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: 'hash',
   base: process.env.BASE_URL,
   routes
 })

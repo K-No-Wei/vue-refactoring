@@ -1,4 +1,5 @@
 # vue-refactoring
+> 需要安装node.js可使用
 
 ## Project setup
 ```

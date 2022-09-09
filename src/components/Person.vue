@@ -63,7 +63,7 @@ export default {
     }
 
     button:hover{
-      background: rgb(21, 138, 227);
+      background: rgba(230, 238, 233, 0.499);
     }
 
 </style>

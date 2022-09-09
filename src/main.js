@@ -2,8 +2,21 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+
 // import ElementUI from 'element-ui';
-// import 'element-ui/lib/theme-chalk/index.css';
+import {  Dropdown,
+  DropdownMenu,
+  DropdownItem,
+  Timeline,
+  TimelineItem,
+  Crad} from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(Dropdown)
+Vue.use(DropdownMenu)
+Vue.use(DropdownItem)
+Vue.use(Timeline)
+Vue.use(TimelineItem)
+
 
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
  
@@ -22,6 +35,23 @@ import 'vtip/lib/index.min.css'
 Vue.use(Vtip.directive)
 // // 工具函数调用
 Vue.prototype.$tip = Vtip.tip
+
+import "@/assets/font/text.css"
+
+import service from  "@/plugins/service"
+Vue.prototype.service = service
+
+//导入代码高亮文件
+import hljs from 'highlight.js' 
+//导入代码高亮样式
+import '@/assets/css/github.css' 
+//自定义一个代码高亮指令
+Vue.directive('highlight',function (el) {
+  let highlight = el.querySelectorAll('pre code');
+  highlight.forEach((block)=>{
+      hljs.highlightBlock(block)
+  })
+})
 
 // Vue.use(ElementUI);
 Vue.use(BootstrapVue)
