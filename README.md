@@ -1,18 +1,29 @@
 # vue-refactoring
-> 需要安装node.js可使用
+> 本项目需要安装node.js,vue-cli使用
 
-## Project setup
+## 1.node.js
+官网[https://nodejs.org/en/]最新版本安装即可
+安装完成打开命令行(cmd)输入 ```node -v```出现版本号及安装成功
+## 2.vue-cli
+项目使用vue-cli，无脑安装最新即可
+```npm install -g vue-cli```
+本项目不使用npm，命令行打开输入```npm install -g yarn```
+
+使用yarn进行本项目的搭建，yarn要比较快速
+
+## 3.克隆完项目进入目录，在该位置打开cmd窗口输入以下命令
 ```
+<!-- 安装项目需要的包 -->
 yarn install
-```
 
-### Compiles and hot-reloads for development
-```
+
+<!-- 运行该项目 -->
+
 yarn serve
-```
 
-### Compiles and minifies for production
-```
+
+<!-- 编译打包项目，展示用不上 -->
+
 yarn build
 ```
 

@@ -48,7 +48,7 @@ export default {
     }
   },
   methods: { //事件处理器
-    runTime(){//运行倒计时
+    runTime() {//运行倒计时
       var that = this;
       var oldTime = new Date('2022/09/09 00:00:00');
       var timer = setInterval(function () {
@@ -62,45 +62,47 @@ export default {
       }, 1000)
     }
   },
-  created(){
+  created() {
     this.runTime()
   }
 };
 </script>
 
 <style scoped lang="scss">
-.nav {
-  background: #292f3c;
-}
+.home {
+  .nav {
+    background: #292f3c;
+  }
 
-.row {
-  position: relative;
-  margin-top: 70px;
-}
+  .row {
+    position: relative;
+    margin-top: 70px;
+  }
 
-.footer {
-  height: 125px;
-  background: linear-gradient(#4a4c4e, #25272ca5);
-}
+  .footer {
+    height: 125px;
+    background: linear-gradient(#4a4c4e, #25272ca5);
+  }
 
-.footer-header {
-  padding-top: 25px;
-  text-align: center;
-  color: wheat;
-  font-size: 10px;
-  font-family: zkxw;
-}
+  .footer-header {
+    padding-top: 25px;
+    text-align: center;
+    color: wheat;
+    font-size: 10px;
+    font-family: zkxw;
+  }
 
-.footer-end {
-  margin-top: 30px;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.708);
-  font-size: 10px;
-  font-family: zkxw;
+  .footer-end {
+    margin-top: 30px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.708);
+    font-size: 10px;
+    font-family: zkxw;
 
-  a {
-    color: #b3b1b2ec;
-    text-decoration: none;
+    a {
+      color: #b3b1b2ec;
+      text-decoration: none;
+    }
   }
 }
 </style>

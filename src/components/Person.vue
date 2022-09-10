@@ -1,4 +1,7 @@
 <template>
+  <div class="person-crad"> 
+
+  
   <div class="card" >
     <img class="card-img-top" src="@/assets/img/person.jpg" alt="Card image cap">
     <div class="card-body">
@@ -22,6 +25,7 @@
   
     </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -39,6 +43,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
+  .person-crad{
     .card{
       background: rgba(0, 0, 0, 0.327);
       border-radius: 15px;
@@ -65,5 +70,7 @@ export default {
     button:hover{
       background: rgba(230, 238, 233, 0.499);
     }
+  }
+    
 
 </style>
