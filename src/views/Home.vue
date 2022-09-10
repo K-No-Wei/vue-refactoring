@@ -31,9 +31,11 @@
 </template>
 
 <script>
+
 import Nav from '@/components/Nav.vue';
 import Person from '@/components/Person.vue'
 import Sidebar from '@/components/Sidebar.vue';
+import Music from './music/index.vue';
 // @ is an alias to /src
 export default {
   name: "Home",
@@ -41,7 +43,7 @@ export default {
     Nav,
     Person,
     Sidebar
-  },
+},
   data() {
     return {
       longTime: ''
@@ -80,7 +82,7 @@ export default {
   }
 
   .footer {
-    height: 125px;
+    height: 175px;
     background: linear-gradient(#4a4c4e, #25272ca5);
   }
 

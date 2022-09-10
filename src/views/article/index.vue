@@ -7,7 +7,7 @@
             <div class="card" v-for="(item, index) in articleList" :key="index">
                 <div class="article row no-gutters listArticle">
                     <div class="col-md-4">
-                        <router-link :to="{name: 'articleid', params: {id: 2}}">
+                        <router-link :to="{name: 'articleid', params: {id: item.id}}">
                             <img :src="item.articleCover" class="card-img" alt="">
                         </router-link>
                     </div>
@@ -45,7 +45,7 @@
 
         </div>
         <div @click="onLoad" class="loading" v-if="this.articleList.length == this.total">
-            <button type="button" class="btn btn-outline-secondary">没有更多楼</button>
+            <button type="button" class="btn btn-outline-secondary">没有更多喽</button>
 
         </div>
 

@@ -29,3 +29,6 @@ yarn build
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+> 除归档页已全部完成，先转后台管理系统

@@ -21,12 +21,12 @@ const routes = [
         component: () => import("@/views/article/articleById.vue")
       },
       {
-        path:  '/category/:id',
+        path:  '/category/:id/:title',
         name: 'category',
         component: () => import("@/views/category")
       },
       {
-        path: `/tag/:id`,
+        path: `/tag/:id/:title`,
         name: 'tag',
         component: () => import("@/views/tag")
       },

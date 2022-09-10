@@ -6,7 +6,7 @@
                 <ul class="list-group">
                     <li v-for="(item, index) in categoryList" :key="index"
                         class="list-group-item d-flex justify-content-between align-items-center">
-                        <router-link :to="{name: 'category', params:{id: item.id}}">
+                        <router-link :to="{name: 'category', params:{id: item.id,title: item.categoryName}}">
                             {{item.categoryName}}
                         </router-link>
                         <span class="badge badge-primary badge-pill">{{item.count}}</span>
@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import { getAllCategory } from '@/api/category';
 export default {
     data() {
         return {
@@ -40,6 +41,18 @@ export default {
                 }
             ]
         }
+    },
+    methods:{
+        getAll(){
+            getAllCategory().then(res => {
+                if(res.data.code === 200){
+                    this.categoryList = res.data.data
+                }
+            })
+        }
+    },
+    created(){
+        this.getAll()
     }
 }
 </script>

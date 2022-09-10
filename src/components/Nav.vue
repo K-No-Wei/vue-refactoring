@@ -15,7 +15,7 @@
               </span>
               <el-dropdown-menu class="xiala">
                 <el-dropdown-item v-for="(item, index) in categoryList" :key="index" class="item">
-                  <router-link :to="{ name: 'category', params: { id: item.id } }"><span>{{ item.categoryName }}</span>
+                  <router-link :to="{ name: 'category', params: { id: item.id, title: item.categoryName } }"><span>{{ item.categoryName }}</span>
                   </router-link>
                 </el-dropdown-item>
               </el-dropdown-menu>
@@ -29,7 +29,7 @@
               </span>
               <el-dropdown-menu class="xiala">
                 <el-dropdown-item v-for="(item, index) in tagList" :key="index" class="item">
-                  <router-link :to="{ name: 'tag', params: { id: item.id } }">
+                  <router-link :to="{ name: 'tag', params: { id: item.id, title: item.tagName } }">
                     <span>{{ item.tagName }}</span>
                   </router-link>
                 </el-dropdown-item>
@@ -45,56 +45,44 @@
 </template>
 
 <script>
+  // 导入api发请求
+import { getAllTag } from "@/api/tag"
+import { getAllCategory } from '@/api/category';
 export default {
   name: "Nav",
   data() {
     return {
-      categoryList: [
-        {
-          id: 1,
-          categoryName: "博客",
-          count: 1,
-        },
-        {
-          id: 2,
-          categoryName: "生活",
-          count: 1,
-        },
-        {
-          id: 3,
-          categoryName: "趣事",
-          count: 1,
-        },
-      ],
-      tagList: [
-        {
-          id: 1,
-          tagName: 'java',
-          count: 3
-        },
-        {
-          id: 2,
-          tagName: 'C++',
-          count: 3
-        },
-        {
-          id: 3,
-          tagName: 'python',
-          count: 3
-        },
-        {
-          id: 4,
-          tagName: 'C#',
-          count: 3
-        }
-      ]
+      categoryList: [],
+      tagList:[]
     };
   },
+  methods: {
+    getCategory() {
+      getAllCategory().then(res => {
+        if (res.data.code === 200) {
+          this.categoryList = res.data.data
+        }
+      })
+    },
+    getTags() {
+      getAllTag().then(res => {
+        if (res.data.code === 200) {
+          this.tagList = res.data.data
+        }
+      })
+    }
+  },
+  created() {
+    this.getCategory(),
+      this.getTags()
+  }
 };
 </script>
 
 <style lang="less" scoped >
 .com-nav {
+
+
   a {
     text-decoration-line: none;
   }
@@ -142,14 +130,28 @@ export default {
     color: white !important;
   }
 
-  .xiala {
-    background: #1b202a9d;
-    border: rgb(143, 24, 194) 20 solid;
 
-  }
 
   span {
     color: #ccc4c4;
+  }
+
+  .item:hover {
+    background: rgba(255, 255, 255, 0.153);
+  }
+}
+
+.xiala {
+  background: #1b202a9d !important;
+
+  .item {
+    span {
+      color: wheat;
+    }
+  }
+
+  a {
+    text-decoration: none;
   }
 
   .item:hover {

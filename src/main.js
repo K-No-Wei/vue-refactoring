@@ -17,7 +17,6 @@ Vue.use(Timeline)
 Vue.use(TimelineItem)
 
 
-
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
  
 import 'bootstrap/dist/css/bootstrap.css'
