@@ -14,6 +14,9 @@ body{
     margin:350px 0;
     font-size:30px;
 }
+
+
+
 @keyframes bganimation{
     0%{
         background-position:0% 50%;
@@ -45,4 +48,27 @@ body{
 	border-radius: 10px;
 	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
 	background-color: #171c20c0;
+}
+
+/*鼠标指针样式自行修改*/
+body {
+	cursor: url(../cursor/Arrow.cur), default;
+}
+select{
+	cursor: url(../cursor/Hand.cur), pointer;
+}
+button,a:hover{
+	cursor: url(../cursor/Hand2.cur), pointer;
+}
+input{
+	cursor:url(../cursor/Help.cur), text;	
+}
+textarea,input:focus{
+	cursor:url(../cursor/IBeam.cur), text;	
+}
+code{
+	cursor: url(../cursor/Handwriting.cur), default;	
+}
+pre>code{
+	cursor: url(../cursor/Copy.cur), default;	
 }

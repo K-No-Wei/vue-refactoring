@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="article-list">
     <!-- 首页文章列表显示 -->
     <div class="card" v-for="(item, index) in articleList" :key="index">
         <div class="article row no-gutters listArticle">
@@ -122,4 +122,7 @@ export default {
 
 <style lang="less">
 @import url("@/assets/scss/article.scss");
+.article-list{
+    font-family: zkxw;
+}
 </style>
