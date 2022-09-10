@@ -6,6 +6,7 @@
     <img class="card-img-top" src="@/assets/img/person.jpg" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">knowei</h5>
+      <div style="text-align: center;">
       <button type="button" class="btn btn-secondary" v-tip="msg.QQ">
         <a href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=2994172661">
           <i class="iconfont icon-QQ"></i>
@@ -22,7 +23,7 @@
           <i class="iconfont icon-bilibili-line"></i>
         </a>
       </button>
-  
+    </div>
     </div>
   </div>
 </div>
@@ -33,7 +34,7 @@ export default {
   data(){
     return {
       msg: {
-        QQ: "QQ",
+        QQ: "QQ，欢迎来撩",
         github: "欢迎关注star",
         blbl: "欢迎关注"
       }

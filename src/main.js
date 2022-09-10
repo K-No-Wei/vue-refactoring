@@ -17,6 +17,7 @@ Vue.use(Timeline)
 Vue.use(TimelineItem)
 
 
+
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
  
 import 'bootstrap/dist/css/bootstrap.css'
@@ -57,6 +58,11 @@ Vue.directive('highlight',function (el) {
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
 Vue.config.productionTip = false
+// 引入下拉刷新
+import { List,Cell } from 'vant';
+Vue.use(Cell)
+Vue.use(List)
+
 
 new Vue({
   router,

@@ -18,9 +18,9 @@
                             </router-link>
                             <p class="card-text">{{item.articleDescribe}}</p>
 
-                            
+
                         </div>
-                        <div class="foot" >
+                        <div class="foot">
                             <div class="foo">
                                 <li class=" d-flex justify-content-between align-items-center">
                                     <small>
@@ -38,103 +38,95 @@
                 </div>
             </div>
 
-            <nav aria-label="Page navigation example" class="pageinfo ">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item"><a class="page-link" href="#">
-                            <i class="iconfont icon-zuojiantou_huaban"></i>
-                        </a></li>
-                    <li v-for="(item, index) in pageIn" :class="{active:index==isActive}" :key="index"
-                        @click="chang(index)"><a class="page-link" href="#">{{item + 1}}</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">
-                            <i class="iconfont icon-youjiantou_huaban"></i>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
         </div>
+        <div @click="onLoad" class="loading" v-if="this.articleList.length != this.total">
+            <button type="button" class="btn btn-outline-secondary">加载文章 <i
+                    class="iconfont icon-shuangxianxiajiantou"></i></button>
+
+        </div>
+        <div @click="onLoad" class="loading" v-if="this.articleList.length == this.total">
+            <button type="button" class="btn btn-outline-secondary">没有更多楼</button>
+
+        </div>
+
     </div>
 </template>
 
 <script>
+import { getAtricleList } from "@/api/article"
 export default {
     data() {
         return {
-            pageIn: [0, 1, 2, 3, 4],
-            isActive: 1,
-            articleList: [
-                {
-                    id: 1,
-                    category: {
-                        id: 1,
-                        categoryName: "博客",
-                        count: null
-                    },
-                    articleCover: "https://tva2.sinaimg.cn/large/006MWoJqgy1h299x0od4xj31xo1d0u0x.jpg",
-                    articleTitle: "Hello World my blog",
-                    articleDescribe: "我的第一个文章",
-                    support: 0,
-                    heat: 0,
-                    articleBodyVo: null,
-                    createTime: "2022-09-05 15:09",
-                    updateTime: "2022-09-07 16:26",
-                    tags: [
-                        {
-                            id: 1,
-                            tagName: "java",
-                            count: 3
-                        },
-                        {
-                            id: 2,
-                            tagName: "c++",
-                            count: 2
-                        }
-                    ]
-                },
-                {
-                    id: 1,
-                    category: {
-                        id: 1,
-                        categoryName: "博客",
-                        count: null
-                    },
-                    articleCover: "https://tva2.sinaimg.cn/large/006MWoJqgy1h299x0od4xj31xo1d0u0x.jpg",
-                    articleTitle: "Hello World my blog",
-                    articleDescribe: "我的第一个文章",
-                    support: 0,
-                    heat: 0,
-                    articleBodyVo: null,
-                    createTime: "2022-09-05 15:09",
-                    updateTime: "2022-09-07 16:26",
-                    tags: [
-                        {
-                            id: 1,
-                            tagName: "java",
-                            count: 3
-                        },
-                        {
-                            id: 2,
-                            tagName: "c++",
-                            count: 2
-                        }
-                    ]
-                }
-            ]
+            current: 1,
+            pageSize: '',
+            total: '',
+            articleList: []
+
         }
     },
     methods: {
-        chang(index) {
-            this.isActive = index
-            console.log(index)
-        }
+        // 获取全部文章
+        getAll() {
+            getAtricleList(this.current).then(res => {
+                if (res.data.code === 200) {
+                    this.articleList = res.data.data
+                    this.current = res.data.pageVo.current
+                    this.pageSize = res.data.pageVo.pageSize
+                    this.total = res.data.pageVo.total
+                }
+            })
+        },
+        // 加载更多文章
+        onLoad() {
+            for (let i = 0; this.current < this.pageSize, i <= 0; i++) {
+                getAtricleList(this.current + 1).then(res => {
+                    if (res.data.code === 200) {
+                        console.log(this.articleList)
+                        console.log(res.data.data.length)
+                        for (let i = 0; i < res.data.data.length; i++) {
+                            this.articleList.push(res.data.data[i])
+                        }
+                        this.current = res.data.pageVo.current
+                        this.pageSize = res.data.pageVo.pageSize
+                        this.total = res.data.pageVo.total
+                    }
+                })
+            }
+
+            // 加载状态结束
+            this.loading = false;
+
+            // 数据全部加载完成
+            if (this.total >= 6) {
+                this.finished = true;
+            }
+        },
+
     },
     created() {
+        this.getAll()
     }
 };
 </script>
 
 <style lang="less" scoped>
 .view-article {
+
+    .loading {
+        width: auto;
+        // color: rgba(39, 39, 30, 0.55);
+        margin-left: 100px;
+        margin-right: 100px;
+        // background: rgba(16, 15, 15, 0.238);
+        text-align: center;
+        font-size: 20px;
+
+        span {
+            // margin: 10px 0px;
+            width: auto;
+        }
+    }
+
     .card {
 
         margin-bottom: 20px;
@@ -142,7 +134,7 @@ export default {
 
         .article {
             border-radius: 10px;
-            
+
             img {
                 border-radius: 15px;
                 width: 100%;
@@ -181,28 +173,29 @@ export default {
 
     }
 
-    .card-body{
-        height: 88%;
+    .card-body {
+        height: 82%;
     }
+
     .end {
         color: #FFF !important;
         background: rgb(50, 147, 232) !important;
     }
 
-    .foot{
+    .foot {
         margin-left: 20px;
-        
+
     }
 
-    .card-text{
+    .card-text {
         margin: 10px 0;
     }
 
-    .card-text-end{
+    .card-text-end {
         padding-bottom: 5px;
     }
 
-    
+
 
     .pagination {
         background: rgba(255, 255, 255, 0) !important;
@@ -223,7 +216,8 @@ export default {
     .article-list {
         font-family: zkxw;
     }
-    .card-title{
+
+    .card-title {
         text-align: center;
     }
 }

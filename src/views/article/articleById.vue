@@ -74,6 +74,7 @@ export default {
 
 <style lang="less" scoped>
 @import url("@/assets/css/markdown.css");
+
 #view-articlebyid {
 
   .other {
@@ -89,6 +90,7 @@ export default {
       .title {
         color: aliceblue;
         text-align: center;
+        font-family: zkwx;
       }
 
     }
@@ -102,6 +104,16 @@ export default {
     }
 
   }
+
+  .post-meta-item {
+    span {
+      color: black;
+    }
+    time{
+      color: rgb(7, 66, 143);
+    }
+  }
+
 
   .post-fjx {
     border-top: 1px rgba(255, 255, 255, 0.508) solid;
@@ -122,18 +134,18 @@ export default {
     .span-left {
       padding-left: 100px;
       float: left;
+      color: black;
     }
 
     .span-right {
       padding-right: 100px;
       float: right;
+      color: black;
     }
   }
 
   .post-content {
-    padding: 10px 10px;
+    padding: 10px 20px;
   }
 }
-
-
 </style>

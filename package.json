@@ -20,6 +20,7 @@
     "markdown-loader": "^8.0.0",
     "marked": "^4.1.0",
     "popper.js": "^1.16.1",
+    "vant": "^2.12.49",
     "vtip": "^1.0.6",
     "vue": "^2.6.14",
     "vue-router": "^3.5.1",
