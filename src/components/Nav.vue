@@ -37,7 +37,7 @@
             </el-dropdown>
           </b-nav-item>
           <b-nav-item to="/archive" exact exact-active-class=""><i class="iconfont icon-rili"></i>归档</b-nav-item>
-          <b-nav-item to="/my" exact exact-active-class=""><i class="iconfont icon-shoucang"></i>个人</b-nav-item>
+          <b-nav-item to="/my" exact exact-active-class=""><i class="iconfont icon-shoucang"></i>关于</b-nav-item>
         </b-nav>
       </b-card-header>
     </div>

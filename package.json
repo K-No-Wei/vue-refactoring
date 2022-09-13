@@ -7,15 +7,12 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "@moefe/vue-aplayer": "^2.0.0-beta.5",
     "axios": "^0.27.2",
     "bootstrap-vue": "^2.22.0",
     "core-js": "^3.8.3",
     "element-ui": "^2.15.9",
-    "font-awesome": "^4.7.0",
     "highlight.js": "^11.6.0",
     "html-loader": "^4.1.0",
-    "jquery": "^3.6.1",
     "less": "^4.1.3",
     "less-loader": "^11.0.0",
     "markdown-loader": "^8.0.0",
@@ -24,6 +21,7 @@
     "vant": "^2.12.49",
     "vtip": "^1.0.6",
     "vue": "^2.6.14",
+    "vue-markdown": "^2.2.4",
     "vue-router": "^3.5.1",
     "vuex": "^3.6.2"
   },
@@ -33,9 +31,11 @@
     "@vue/cli-plugin-vuex": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
     "babel-plugin-component": "^1.1.1",
+    "compression-webpack-plugin": "^10.0.0",
     "node-sass": "^7.0.1",
     "sass-loader": "^13.0.2",
     "style-loader": "^3.3.1",
+    "vue-loader": "^17.0.0",
     "vue-template-compiler": "^2.6.14"
   },
   "browserslist": [

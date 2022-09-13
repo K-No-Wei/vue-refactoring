@@ -2,14 +2,12 @@ import Vue from 'vue'
 
 import store from './store'
 
-// import ElementUI from 'element-ui';
 import {  Dropdown,
   DropdownMenu,
   DropdownItem,
   Timeline,
   TimelineItem,
   Crad} from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(Dropdown)
 Vue.use(DropdownMenu)
 Vue.use(DropdownItem)
@@ -19,10 +17,10 @@ Vue.use(TimelineItem)
 
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
  
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
-import $ from 'jquery'
-import 'bootstrap/dist/js/bootstrap.min'
+// import 'bootstrap/dist/css/bootstrap.css'
+// import 'bootstrap-vue/dist/bootstrap-vue.css'
+// import $ from 'jquery'
+// import 'bootstrap/dist/js/bootstrap.min'
 import App from './App.vue'
 import router from './router'
 // 引入阿里图标

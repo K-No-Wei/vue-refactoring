@@ -6,7 +6,7 @@
     </b-card>
     <b-card-body>
       <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
-      <div class="row">
+      <div class="row" v-if="path.includes('admin') === false">
         <div class="col-sm-1" />
         <div class="col-sm-3">
           <Sidebar />
@@ -35,7 +35,6 @@
 import Nav from '@/components/Nav.vue';
 import Person from '@/components/Person.vue'
 import Sidebar from '@/components/Sidebar.vue';
-import Music from './music/index.vue';
 // @ is an alias to /src
 export default {
   name: "Home",
@@ -46,7 +45,8 @@ export default {
 },
   data() {
     return {
-      longTime: ''
+      longTime: '',
+      path: ''
     }
   },
   methods: { //事件处理器
@@ -65,7 +65,8 @@ export default {
     }
   },
   created() {
-    this.runTime()
+    this.runTime(),
+    this.path = this.$route.path
   }
 };
 </script>

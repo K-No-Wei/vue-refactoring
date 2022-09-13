@@ -1,55 +1,54 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Vue from "vue";
+import VueRouter from "vue-router";
 
-
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    redirect: '/article',
+    path: "/",
+    name: "home",
+    redirect: "/article",
     component: () => import("@/views/Home.vue"),
-    children:[
+    children: [
       {
-        path: '/article',
-        component: () => import("@/views/article")
+        path: "/article",
+        component: () => import("@/views/article"),
       },
       {
-        path: '/article/:id',
-        name: 'articleid',
-        component: () => import("@/views/article/articleById.vue")
+        path: "/article/:id",
+        name: "articleid",
+        component: () => import("@/views/article/articleById.vue"),
       },
       {
-        path:  '/category/:id/:title',
-        name: 'category',
-        component: () => import("@/views/category")
+        path: "/category/:id/:title",
+        name: "category",
+        component: () => import("@/views/category"),
       },
       {
         path: `/tag/:id/:title`,
-        name: 'tag',
-        component: () => import("@/views/tag")
+        name: "tag",
+        component: () => import("@/views/tag"),
       },
       {
-        path: '/archive',
-        component: () => import("@/views/archive")
+        path: "/archive",
+        component: () => import("@/views/archive"),
       },
       {
-        path: '/my',
-        component: () => import("@/views/my")
-      }
-    ]
+        path: "/my",
+        component: () => import("@/views/my"),
+      },
+    ],
   },
   {
-    path: '*',
-    component: () => import("@/views/404")
-  }
-]
+    path: "*",
+    component: () => import("@/views/404"),
+  },
+];
 
 const router = new VueRouter({
-  mode: 'hash',
+  mode: "hash",
   base: process.env.BASE_URL,
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;

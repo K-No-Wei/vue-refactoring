@@ -3,7 +3,7 @@
 
   
   <div class="card" >
-    <img class="card-img-top" src="@/assets/img/person.jpg" alt="Card image cap">
+    <img class="card-img-top" src="https://tva4.sinaimg.cn/large/006MWoJqgy1h5hli200pbj32gw1jgtkm.jpg" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">knowei</h5>
       <div style="text-align: center;">
